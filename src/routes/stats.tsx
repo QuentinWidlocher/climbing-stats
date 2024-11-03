@@ -9,18 +9,22 @@ export default function StatsPage() {
   const entries = createDexieArrayQuery(() => db.tallies.where('createdAt').above(startOfMonth(new Date())).toArray())
 
   return (
-    <div class="flex flex-col w-full h-full justify-around pb-20">
+    <main class="flex flex-col w-full h-full justify-center join join-vertical">
       <For each={blockLevels}>{level => (
-        <div class="stats shadow">
+        <div class="stats shadow-xl overflow-hidden join-item">
           <For each={blockSublevels}>{sublevel => (
             <div class={twMerge("stat", backgroundColors[level], textColors[level])}>
               <div class={twMerge("text-2xl text-center")}>{sublevel}</div>
-              <div class="stat-value text-center">{entries.filter(e => e.level == level && e.subLevel == sublevel).length}</div>
+              <div class="stat-value text-center font-mono">
+                <span class="countdown font-mono">
+                  <span style={{ "--value": entries.filter(e => e.level == level && e.subLevel == sublevel).length }} />
+                </span>
+              </div>
             </div>
           )}
           </For>
         </div>
       )}</For>
-    </div>
+    </main>
   )
 }

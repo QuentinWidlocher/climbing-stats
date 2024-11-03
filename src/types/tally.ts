@@ -11,12 +11,12 @@ export const labels: Record<BlockLevel, string> = {
 };
 
 export const backgroundColors: Record<BlockLevel, string> = {
-  'black': 'bg-gray-900',
+  'black': 'bg-gray-800',
   'blue': 'bg-blue-500',
   'green': 'bg-green-500',
   'red': 'bg-red-500',
   'white': 'bg-gray-100',
-  'yellow': 'bg-yellow-500',
+  'yellow': 'bg-yellow-400',
 };
 
 export const textColors: Record<BlockLevel, string> = {
@@ -25,7 +25,7 @@ export const textColors: Record<BlockLevel, string> = {
   'green': 'text-green-100',
   'red': 'text-red-100',
   'white': 'text-gray-900',
-  'yellow': 'text-yellow-100',
+  'yellow': 'text-yellow-50',
 };
 
 export const tallySchema = object({
